@@ -107,14 +107,13 @@ class Questions extends Component {
       incorrect_answers: incorrectAnswers } = param;
     const { active, seconds, buttonsDisabled } = this.state;
     return (
-      <div>
+      <div className="quizz">
         <h3 data-testid="question-category">{ category }</h3>
         <p data-testid="question-text">{ question }</p>
         <button
           value="acertou"
           onClick={
             this.handleClick
-            /* this.ranking(); */
           }
           className={ active ? 'acertou' : null }
           type="button"
@@ -143,13 +142,15 @@ class Questions extends Component {
 
   renderNextButton() {
     return (
-      <button
-        type="button"
-        data-testid="btn-next"
-        onClick={ () => this.nextQuestion() }
-      >
-        Próxima
-      </button>
+      <div className="button-next">
+        <button
+          type="button"
+          data-testid="btn-next"
+          onClick={ () => this.nextQuestion() }
+        >
+          Próxima
+        </button>
+      </div>
     );
   }
 
@@ -160,12 +161,13 @@ class Questions extends Component {
     if (questionIndex === limit) return <Redirect to="/feedback" />;
     return (
       <main>
-        {/* { redirect && (<Redirect to="/feedback" />)} */}
-        <div>
-          { questions.length > 0 ? this.multipleQuestion(questions[questionIndex])
-            : null }
+        <div id="login-box" className="login-box col-md-12">
+          <div>
+            { questions.length > 0 ? this.multipleQuestion(questions[questionIndex])
+              : null }
+          </div>
+          { active ? this.renderNextButton() : null }
         </div>
-        { active ? this.renderNextButton() : null }
       </main>
     );
   }

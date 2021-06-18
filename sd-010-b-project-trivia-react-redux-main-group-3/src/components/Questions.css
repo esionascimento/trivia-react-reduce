@@ -1,7 +1,22 @@
+
 .acertou {
   border: 3px solid rgb(6, 240, 15);
 }
 
 .errou {
   border: 3px solid red;
+}
+
+.quizz {
+  background: lightgray;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+  width: 300px;
+}
+
+.button-next {
+  text-align: center;
 }
